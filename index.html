@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahab Social</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f0f2f5;color:#222}
+header{background:#1877f2;color:white;padding:16px;text-align:center;font-size:25px;font-weight:bold}
+.container{max-width:600px;margin:auto;padding:12px}
+.card{background:white;padding:16px;margin-bottom:14px;border-radius:12px;box-shadow:0 2px 6px #ddd}
+input,textarea,button{width:100%;padding:12px;margin-top:9px;border-radius:8px;font-size:15px}
+input,textarea{border:1px solid #ccc}
+textarea{resize:vertical;min-height:80px}
+button{border:none;background:#1877f2;color:white;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.6}
+.secondary{background:#e4e6eb;color:#222}
+.danger{background:#dc3545}
+.hidden{display:none!important}
+.small{font-size:13px;color:#65676b}
+.profile-row{display:flex;align-items:center;gap:12px}
+.avatar{width:55px;height:55px;border-radius:50%;object-fit:cover;background:#ddd}
+.post-photo{width:100%;max-height:450px;object-fit:contain;margin-top:10px;border-radius:8px;background:#f0f2f5}
+.post-actions{display:flex;gap:8px}
+.post-actions button{padding:10px 5px;flex:1}
+#status{padding:10px;margin-bottom:10px;border-radius:8px;background:#fff3cd;color:#664d03;overflow-wrap:anywhere}
+h3{margin-top:0}
+footer{text-align:center;padding:15px;color:#777}
+.liker-list{font-size:14px;color:#444;margin:7px 0;overflow-wrap:anywhere}
+.comment-line{background:#f0f2f5;padding:8px;border-radius:8px;margin:7px 0;overflow-wrap:anywhere}
+/* Wahab Social New Design */
+body {
+  background: #f0f2f5;
+  color: #1c1e21;
+}
+
+header {
+  background: linear-gradient(135deg, #1877f2, #6a5cff);
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 10px;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+button {
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input, textarea {
+  border-radius: 8px;
+  padding: 12px;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 8px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}
+.cover-section {
+  width: 100%;
+  max-width: 900px;
+  margin: 15px auto;
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.cover-edit {
+  display: block;
+  background: white;
+  color: #1877f2;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .cover-photo {
+    height: 150px;
+  }
+
+  .cover-section {
+    margin: 10px auto;
+  }
+}
+/* Facebook-style Home Feed */
+.profile-row {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 5px 0;
+}
+
+.avatar {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid #1877f2;
+flex-shrink: 0;
+}
+
+.card {
+background: #fff;
+border-radius: 14px;
+padding: 15px;
+margin-bottom: 16px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.card h3 {
+margin: 0 0 8px;
+color: #1c1e21;
+}
+
+.card p {
+line-height: 1.5;
+overflow-wrap: anywhere;
+}
+
+.post-photo {
+width: 100%;
+max-height: 450px;
+object-fit: contain;
+display: block;
+margin-top: 12px;
+border-radius: 10px;
+background: #f0f2f5;
+}
+
+.post-actions {
+display: flex;
+gap: 8px;
+border-top: 1px solid #e4e6eb;
+margin-top: 12px;
+padding-top: 10px;
+}
+
+.post-actions button {
+flex: 1;
+width: auto;
+margin-top: 0;
+padding: 10px 4px;
+background: #f0f2f5;
+color: #606770;
+border-radius: 8px;
+font-size: 14px;
+}
+
+.post-actions button:hover {
+background: #e4e6eb;
+}
+
+.comment-line {
+background: #f0f2f5;
+padding: 10px 12px;
+border-radius: 12px;
+margin: 8px 0;
+overflow-wrap: anywhere;
+}
+
+input, textarea {
+width: 100%;
+max-width: 100%;
+}
+
+button {
+transition: background 0.2s ease;
+}
+
+@media (max-width: 600px) {
+.container {
+padding: 8px;
+}
+
+.card {
+padding: 12px;
+border-radius: 12px;
+}
+
+.post-actions {
+gap: 5px;
+}
+
+.post-actions button {
+font-size: 12px;
+padding: 10px 2px;
+}
+}
+/* Wahab Social Cover Design */
+.cover-section {
+width: 100%;
+max-width: 900px;
+margin: 10px auto;
+position: relative;
+background: white;
+border-radius: 12px;
+overflow: hidden;
+}
+
+.cover-photo {
+width: 100%;
+height: 120px;
+object-fit: cover;
+display: block;
+}
+
+.cover-edit {
+display: block;
+background: white;
+color: #1877f2;
+padding: 10px;
+text-align: center;
+font-weight: bold;
+cursor: pointer;
+}
+
+@media (max-width: 600px) {
+.cover-photo {
+height: 120px;
+}
+}
+/* Facebook Style Home Feed */
+#feed {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+#feed .card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border: 1px solid #e4e6eb;
+}
+
+#feed .card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1c1e21;
+  overflow-wrap: anywhere;
+}
+
+#feed .card img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+#feed .post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #e4e6eb;
+}
+
+#feed .post-actions button {
+  flex: 1;
+  min-width: 75px;
+  background: #f0f2f5;
+  color: #1877f2;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 5px;
+  font-size: 14px;
+}
+
+#feed .post-actions button:active {
+  background: #dbe7f7;
+}
+
+#feed textarea,
+#feed input {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 8px;
+}
+
+#feed button {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #feed .card {
+    padding: 12px;
+  }
+
+  #feed .card img {
+    max-height: 350px;
+  }
+}
+</style>
+</head>
+<body>
+<div style="text-align:center; padding:15px; background:white; border-radius:12px; margin:10px;">
+  <img
+    id="coverProfilePhoto"
+    src=""
+    alt="Profile Photo"
+    style="width:90px; height:90px; border-radius:50%; object-fit:cover; border:3px solid #1877f2;"
+  >
+  <h2 id="coverProfileName">Abdul Wahab Sk</h2>
+</div>
+<div class="cover-section" style="
+  width:100%;
+  min-height:220px;
+  background:linear-gradient(135deg,#1877f2,#7c4dff);
+  color:white;
+  text-align:center;
+  padding:35px 10px;
+  border-radius:12px;
+  margin-bottom:15px;
+">
+<h1>Wahab Social ❤️</h1>
+<p>Connect with friends • Share happiness</p>
+<p>🌟 Together We Grow 🌟</p>
+</div>
+<div class="cover-section">
+  <img
+    id="coverPhoto"
+    class="cover-photo"
+src=""
+    alt="Cover Photo"
+  >
+
+  <label for="coverInput" class="cover-edit">
+    📷 Change Cover Photo
+  </label>
+
+  <input
+    type="file"
+    id="coverInput"
+    accept="image/*"
+    style="display:none"
+  >
+</div>
+<header>Wahab Social ❤️</header>
+
+<div class="container">
+  <div id="status" class="hidden"></div>
+
+  <section id="authSection" class="card">
+    <h2>Welcome to Wahab Social</h2>
+    <p>Connect with friends ❤️</p>
+
+    <div id="signupFields" class="hidden">
+      <input id="signupName" type="text" placeholder="Your full name">
+      <label for="signupPhoto" class="small">Choose profile photo (optional)</label>
+      <input id="signupPhoto" type="file" accept="image/*">
+    </div>
+
+    <input id="email" type="email" placeholder="Email address" autocomplete="email">
+    <input id="password" type="password" placeholder="Password" autocomplete="current-password">
+
+    <button id="loginBtn" type="button">Login</button>
+    <button id="signupBtn" type="button">Create Account</button>
+    <button id="showLoginBtn" type="button" class="secondary hidden">Back to Login</button>
+  </section>
+<section class="card">
+  <h3>🔔 Notifications</h3>
+<section class="card">
+  <h3>👥 Friend Requests</h3>
+  <button id="viewFriendRequestsBtn" type="button">
+    View Friend Requests
+  </button>
+  <div id="friendRequestsList"></div>
+</section>
+
+<section class="card">
+  <h3>🤝 My Friends</h3>
+  <button id="viewFriendsBtn" type="button">
+    View Friends
+  </button>
+  <div id="friendsList"></div>
+</section>
+  <button id="notificationBtn" type="button">
+    View Notifications
+  </button>
+  <div id="notificationList" class="hidden"></div>
+</section>
+  <main id="appSection" class="hidden">
+    <section class="card">
+      <div class="profile-row">
+<section class="card">
+  <h3>🔍 Search Users</h3>
+
+  <input
+    type="text"
+    id="userSearchInput"
+    placeholder="Enter user name..."
+  >
+
+  <button id="userSearchBtn" type="button">
+    Search
+  </button>
+
+  <div id="userSearchResults"></div>
+</section>
+        <img id="myPhoto" class="avatar" alt="Profile photo">
+        <div>
+          <h3 id="myName">My Profile</h3>
+          <div id="myEmail" class="small"></div>
+        </div>
+      </div>
+
+      <input id="editName" type="text" placeholder="Change your name">
+      <label class="small" for="profileFile">Change profile photo (optional)</label>
+      <input id="profileFile" type="file" accept="image/*">
+<label class="small" for="profileBio">My Bio</label>
+<textarea
+  id="profileBio"
+  placeholder="Write something about yourself..."
+  rows="3"
+  maxlength="200"
+></textarea>
+      <button id="saveProfileBtn" type="button">Save Profile</button>
+      <button id="logoutBtn" type="button" class="secondary">Logout</button>
+    </section>
+
+    <section class="card">
+      <h3>Create a Post 📝</h3>
+      <textarea id="postText" placeholder="What's on your mind?"></textarea>
+      <label for="postFile" class="small">Choose a photo from your mobile gallery</label>
+      <input id="postFile" type="file" accept="image/*">
+      <button id="postBtn" type="button">Publish Post</button>
+    </section>
+
+    <h2>News Feed 🌍</h2>
+    <div id="feed"><div class="card">Loading posts...</div></div>
+  </main>
+</div>
+
+<footer>Wahab Social © 2026</footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+"use strict";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCMqQ3ZbpcCuE4_ctntmxNKVgOwioyKLJo",
+  authDomain: "wahab-social.firebaseapp.com",
+  projectId: "wahab-social",
+  storageBucket: "wahab-social.firebasestorage.app",
+  messagingSenderId: "935164408970",
+  appId: "1:935164408970:web:b94c9d8ed432e65819a973",
+  measurementId: "G-60GSCVHHVD"
+};
+
+const IMGBB_API_KEY = "15eb9fdc5db4099ac3668f5ff5d1b0a3";
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.firestore();
+const $ = id => document.getElementById(id);
+
+const statusBox = $("status");
+const authSection = $("authSection");
+const appSection = $("appSection");
+const signupFields = $("signupFields");
+
+let currentUser = null;
+let currentProfile = {};
+let stopFeed = null;
+let busy = false;
+
+const userNameCache = new Map();
+auth.onAuthStateChanged(async function(user) {
+  const coverProfilePhoto = $("coverProfilePhoto");
+  const coverProfileName = $("coverProfileName");
+
+  if (!user) return;
+
+  try {
+    const doc = await db.collection("users").doc(user.uid).get();
+
+    if (doc.exists) {
+      const userData = doc.data();
+
+      coverProfilePhoto.src =
+        userData.photoURL ||
+        userData.photoUrl ||
+        userData.photo ||
+        "";
+
+      coverProfileName.textContent = userData.name || "User";
+    }
+  } catch (error) {
+    console.error("Profile loading error:", error);
+  }
+});
+function showMessage(message) {
+  statusBox.textContent = message;
+  statusBox.classList.remove("hidden");
+}
+
+function clearMessage() {
+  statusBox.textContent = "";
+  statusBox.classList.add("hidden");
+}
+
+function errorMessage(error) {
+  console.error(error);
+
+  const messages = {
+    "auth/invalid-email": "Please enter a valid email address.",
+    "auth/invalid-credential": "Incorrect email or password.",
+    "auth/user-not-found": "Account not found. Please create an account.",
+    "auth/email-already-in-use": "This email already has an account.",
+    "auth/weak-password": "Password must contain at least 6 characters.",
+    "auth/network-request-failed": "Internet connection problem.",
+    "permission-denied": "Firebase Firestore permission denied. Check your database rules."
+  };
+
+  showMessage(messages[error.code] || (error.message || "Something went wrong."));
+}
+
+async function runButton(button, action) {
+  if (busy) return;
+
+  busy = true;
+  const oldText = button.textContent;
+  button.disabled = true;
+  button.textContent = "Please wait...";
+
+  try {
+    clearMessage();
+    await action();
+  } catch (error) {
+    errorMessage(error);
+  } finally {
+    busy = false;
+    button.disabled = false;
+    button.textContent = oldText;
+  }
+}
+
+async function uploadPhoto(file) {
+  if (!file) return "";
+
+  if (!file.type.startsWith("image/")) {
+    throw new Error("Please select an image file.");
+  }
+
+  if (file.size > 5 * 1024 * 1024) {
+    throw new Error("Please choose a photo smaller than 5 MB.");
+  }
+
+  if (
+    !IMGBB_API_KEY ||
+    IMGBB_API_KEY === "REPLACE_WITH_YOUR_IMGBB_API_KEY" ||
+    IMGBB_API_KEY === "Your_here"
+  ) {
+    throw new Error("Add your own ImgBB API key in the code before uploading photos.");
+  }
+
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 45000);
+
+  try {
+    const response = await fetch(
+      "https://api.imgbb.com/1/upload?key=" + encodeURIComponent(IMGBB_API_KEY),
+      {
+        method: "POST",
+        body: formData,
+        signal: controller.signal
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(result.error?.message || "Photo upload failed.");
+    }
+
+    return result.data.url;
+
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw new Error("Photo upload took too long. Check internet and try a smaller photo.");
+    }
+
+    throw error;
+
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+$("loginBtn").addEventListener("click", () =>
+  runButton($("loginBtn"), async () => {
+    const email = $("email").value.trim();
+    const password = $("password").value;
+
+    if (!email || !password) {
+      throw new Error("Enter your email and password.");
+    }
+
+    await auth.signInWithEmailAndPassword(email, password);
+    showMessage("Login successful!");
+  })
+);
+
+$("signupBtn").addEventListener("click", async () => {
+  if (signupFields.classList.contains("hidden")) {
+    signupFields.classList.remove("hidden");
+    $("showLoginBtn").classList.remove("hidden");
+    $("signupBtn").textContent = "Register New Account";
+    $("loginBtn").classList.add("hidden");
+    return;
+  }
+
+  await runButton($("signupBtn"), async () => {
+    const name = $("signupName").value.trim();
+    const email = $("email").value.trim();
+    const password = $("password").value;
+    const file = $("signupPhoto").files[0];
+
+    if (!name) throw new Error("Enter your full name.");
+    if (!email || !password) throw new Error("Enter your email and password.");
+
+    if (password.length < 6) {
+      throw new Error("Password must contain at least 6 characters.");
+    }
+
+    const credential = await auth.createUserWithEmailAndPassword(email, password);
+
+    let photoURL = "";
+    if (file) photoURL = await uploadPhoto(file);
+
+    await db.collection("users").doc(credential.user.uid).set({
+      name,
+      photoURL,
+      email,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    currentProfile = { name, photoURL, email };
+    showMessage("Account created successfully!");
+  });
+});
+
+$("showLoginBtn").addEventListener("click", () => {
+  signupFields.classList.add("hidden");
+  $("showLoginBtn").classList.add("hidden");
+  $("loginBtn").classList.remove("hidden");
+  $("signupBtn").textContent = "Create Account";
+  clearMessage();
+});
+
+auth.onAuthStateChanged(async user => {
+  currentUser = user;
+
+  if (!user) {
+    authSection.classList.remove("hidden");
+    appSection.classList.add("hidden");
+
+    if (stopFeed) {
+      stopFeed();
+      stopFeed = null;
+    }
+
+    return;
+  }
+
+  authSection.classList.add("hidden");
+  appSection.classList.remove("hidden");
+  $("myEmail").textContent = user.email || "";
+
+  try {
+    const doc = await db.collection("users").doc(user.uid).get();
+
+    currentProfile = doc.exists ? doc.data() : {};
+
+    if (!currentProfile.name) {
+      currentProfile.name = user.displayName || (user.email || "User").split("@")[0];
+    }
+
+    userNameCache.set(user.uid, currentProfile.name);
+
+    $("myName").textContent = currentProfile.name;
+    $("editName").value = currentProfile.name;
+    $("myPhoto").src = currentProfile.photoURL || defaultAvatar();
+$("profileBio").value = currentProfile.bio || "";
+    startFeed();
+
+  } catch (error) {
+    errorMessage(error);
+  }
+});
+
+function defaultAvatar() {
+  return "https://placehold.co/100x100?text=User";
+}
+
+$("saveProfileBtn").addEventListener("click", () =>
+  runButton($("saveProfileBtn"), async () => {
+    if (!currentUser) throw new Error("Please login first.");
+
+    const name = $("editName").value.trim();
+    const file = $("profileFile").files[0];
+
+    if (!name) throw new Error("Please enter your name.");
+
+    let photoURL = currentProfile.photoURL || "";
+
+    if (file) photoURL = await uploadPhoto(file);
+
+const bio = $("profileBio").value.trim();
+
+await db.collection("users").doc(currentUser.uid).set({
+  name,
+  photoURL,
+  bio,
+  email: currentUser.email || "",
+  updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+}, { merge: true });
+
+    currentProfile = { ...currentProfile, name, photoURL };
+    userNameCache.set(currentUser.uid, name);
+
+    $("myName").textContent = name;
+    $("myPhoto").src = photoURL || defaultAvatar();
+
+    showMessage("Profile saved successfully!");
+  })
+);
+
+$("postBtn").addEventListener("click", () =>
+  runButton($("postBtn"), async () => {
+    if (!currentUser) throw new Error("Please login first.");
+
+    const text = $("postText").value.trim();
+    const file = $("postFile").files[0];
+
+    if (!text && !file) {
+      throw new Error("Write something or choose a photo.");
+    }
+
+    let postPhoto = "";
+    if (file) postPhoto = await uploadPhoto(file);
+
+    await db.collection("posts").add({
+      uid: currentUser.uid,
+      name: currentProfile.name || "User",
+      photoURL: currentProfile.photoURL || "",
+      text,
+      postPhoto,
+      likes: [],
+      comments: [],
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    $("postText").value = "";
+    $("postFile").value = "";
+
+    showMessage("Your post was published!");
+  })
+);
+
+function startFeed() {
+  if (stopFeed) stopFeed();
+
+  stopFeed = db.collection("posts")
+    .orderBy("createdAt", "desc")
+    .limit(50)
+    .onSnapshot(snapshot => {
+      const feed = $("feed");
+      feed.replaceChildren();
+
+      if (snapshot.empty) {
+        const empty = document.createElement("div");
+        empty.className = "card";
+        empty.textContent = "No posts yet. Be the first to post!";
+        feed.appendChild(empty);
+        return;
+      }
+
+      snapshot.forEach(doc => renderPost(doc.id, doc.data()));
+
+    }, error => {
+      errorMessage(error);
+      $("feed").textContent = "Could not load posts. Please check Firestore rules.";
+    });
+}
+
+async function getNamesForUids(uids) {
+  const unique = [...new Set(uids.filter(Boolean))];
+
+  await Promise.all(unique.map(async uid => {
+    if (userNameCache.has(uid)) return;
+
+    try {
+      const doc = await db.collection("users").doc(uid).get();
+      const data = doc.exists ? doc.data() : {};
+
+      userNameCache.set(uid, data.name || "User");
+
+    } catch (error) {
+      userNameCache.set(uid, "User");
+    }
+  }));
+}
+
+function renderPost(postId, post) {
+  const feed = $("feed");
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const row = document.createElement("div");
+  row.className = "profile-row";
+
+  const avatar = document.createElement("img");
+  avatar.className = "avatar";
+  avatar.alt = "User photo";
+  avatar.src = post.photoURL || defaultAvatar();
+
+  const userInfo = document.createElement("div");
+  const name = document.createElement("strong");
+  name.textContent = post.name || "User";
+
+  const date = document.createElement("div");
+  date.className = "small";
+  date.textContent = post.createdAt
+    ? post.createdAt.toDate().toLocaleString()
+    : "Just now";
+
+  userInfo.append(name, date);
+  row.append(avatar, userInfo);
+  card.appendChild(row);
+
+  if (post.text) {
+    const content = document.createElement("p");
+    content.style.whiteSpace = "pre-wrap";
+    content.textContent = post.text;
+    card.appendChild(content);
+  }
+
+  if (post.postPhoto) {
+    const image = document.createElement("img");
+    image.className = "post-photo";
+    image.src = post.postPhoto;
+    image.alt = "Post photo";
+    image.loading = "lazy";
+    card.appendChild(image);
+  }
+
+  const likes = Array.isArray(post.likes) ? post.likes : [];
+  const comments = Array.isArray(post.comments) ? post.comments : [];
+
+  const counts = document.createElement("p");
+  counts.className = "small";
+  counts.textContent = "❤️ " + likes.length + " Likes  ·  💬 " + comments.length + " Comments";
+  card.appendChild(counts);
+
+  const likerList = document.createElement("div");
+  likerList.className = "liker-list";
+  likerList.textContent = likes.length ? "Loading people who liked..." : "No likes yet.";
+  card.appendChild(likerList);
+
+  getNamesForUids(likes).then(() => {
+    if (!card.isConnected) return;
+
+    const names = likes.map(uid => userNameCache.get(uid) || "User");
+
+    likerList.textContent = names.length
+      ? "❤️ Liked by: " + names.join(", ")
+      : "No likes yet.";
+  });
+
+  const actions = document.createElement("div");
+  actions.className = "post-actions";
+
+  const likeBtn = document.createElement("button");
+  likeBtn.className = "secondary";
+  likeBtn.textContent = likes.includes(currentUser.uid) ? "❤️ Liked" : "🤍 Like";
+
+
+likeBtn.addEventListener("click", () =>
+  runButton(likeBtn, async () => {
+    const ref = db.collection("posts").doc(postId);
+
+    const addedLike = await db.runTransaction(async transaction => {
+      const snap = await transaction.get(ref);
+
+      if (!snap.exists) {
+        throw new Error("This post no longer exists.");
+      }
+
+      const data = snap.data();
+      const latestLikes = data.likes || [];
+
+      if (latestLikes.includes(currentUser.uid)) {
+        transaction.update(ref, {
+          likes: firebase.firestore.FieldValue.arrayRemove(currentUser.uid)
+        });
+        return false;
+      } else {
+        transaction.update(ref, {
+          likes: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
+        });
+        return true;
+      }
+    });
+
+    if (addedLike && post.uid && post.uid !== currentUser.uid) {
+      await db.collection("notifications").add({
+        toUid: post.uid,
+        fromUid: currentUser.uid,
+        message: (currentProfile.name || "Someone") + " liked your post ❤️",
+        type: "like",
+        postId: postId,
+        createdAt: new Date().toISOString()
+      });
+    }
+  })
+);
+
+  const commentBtn = document.createElement("button");
+  commentBtn.className = "secondary";
+  commentBtn.textContent = "💬 Comment";
+
+  const commentInput = document.createElement("input");
+  commentInput.className = "comment-input";
+  commentInput.placeholder = "Write a comment...";
+  commentInput.setAttribute("aria-label", "Write a comment");
+
+commentBtn.addEventListener("click", () =>
+  runButton(commentBtn, async () => {
+    const text = commentInput.value.trim();
+
+    if (!text) {
+      throw new Error("Write a comment first.");
+    }
+
+    await db.collection("posts").doc(postId).update({
+      comments: firebase.firestore.FieldValue.arrayUnion({
+        uid: currentUser.uid,
+        name: currentProfile.name || "User",
+        text: text,
+        createdAt: new Date().toISOString()
+      })
+    });
+
+    if (post.uid && post.uid !== currentUser.uid) {
+      await db.collection("notifications").add({
+        toUid: post.uid,
+        fromUid: currentUser.uid,
+        message:
+          (currentProfile.name || "Someone") +
+          " commented: " + text,
+        type: "comment",
+        postId: postId,
+        createdAt: new Date().toISOString()
+      });
+    }
+
+    commentInput.value = "";
+    showMessage("Comment added!");
+  })
+);
+
+  const shareBtn = document.createElement("button");
+  shareBtn.className = "secondary";
+  shareBtn.textContent = "🔗 Share";
+
+  shareBtn.addEventListener("click", async () => {
+    const shareText = (post.name || "User") + " on Wahab Social: " + (post.text || "");
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Wahab Social",
+          text: shareText,
+          url: location.href
+        });
+
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(shareText);
+        showMessage("Post text copied. You can share it now.");
+
+      } else {
+        showMessage(shareText);
+      }
+
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        showMessage("Share was not completed. You can copy the post text manually.");
+      }
+    }
+  });
+
+  actions.append(likeBtn, commentBtn, shareBtn);
+  card.appendChild(actions);
+  card.appendChild(commentInput);
+
+  if (comments.length) {
+    const heading = document.createElement("h4");
+    heading.textContent = "Comments";
+    card.appendChild(heading);
+
+    comments.slice(-5).forEach(comment => {
+      const line = document.createElement("p");
+      line.className = "comment-line";
+
+      const bold = document.createElement("strong");
+      bold.textContent = (comment.name || "User") + ": ";
+
+      const commentText = document.createElement("span");
+      commentText.textContent = comment.text || "";
+
+      line.append(bold, commentText);
+      card.appendChild(line);
+    });
+  }
+
+  feed.appendChild(card);
+}
+
+$("logoutBtn").addEventListener("click", () =>
+  runButton($("logoutBtn"), async () => {
+    await auth.signOut();
+    showMessage("You have logged out.");
+  })
+);
+
+window.addEventListener("error", event => {
+  showMessage("JavaScript error: " + event.message);
+});
+
+window.addEventListener("unhandledrejection", event => {
+  showMessage("Error: " + (event.reason?.message || String(event.reason)));
+});
+// Wahab Social Notifications
+
+$("notificationBtn").addEventListener("click", async () => {
+  if (!currentUser) {
+    showMessage("Please login first.");
+    return;
+  }
+
+  const list = $("notificationList");
+  list.classList.toggle("hidden");
+
+  if (list.classList.contains("hidden")) return;
+
+  list.textContent = "Loading notifications...";
+
+  try {
+    const snapshot = await db.collection("notifications")
+      .where("toUid", "==", currentUser.uid)
+      .limit(30)
+      .get();
+
+    list.replaceChildren();
+
+    if (snapshot.empty) {
+      list.textContent = "No notifications yet.";
+      return;
+    }
+
+    const notifications = [];
+
+    snapshot.forEach(doc => {
+      notifications.push(doc.data());
+    });
+
+    notifications.sort((a, b) =>
+      (b.createdAt || "").localeCompare(a.createdAt || "")
+    );
+
+    notifications.forEach(item => {
+      const box = document.createElement("div");
+      box.className = "comment-line";
+      box.textContent = item.message || "New notification";
+      list.appendChild(box);
+    });
+
+  } catch (error) {
+    console.error(error);
+    list.textContent = "Could not load notifications.";
+  }
+});
+// Wahab Social - Search Users
+
+$("userSearchBtn").addEventListener("click", async () => {
+  const searchName = $("userSearchInput").value.trim().toLowerCase();
+  const results = $("userSearchResults");
+
+  results.replaceChildren();
+
+  if (!searchName) {
+    results.textContent = "Please enter a user name.";
+    return;
+  }
+
+  if (!currentUser) {
+    results.textContent = "Please login first.";
+    return;
+  }
+
+  results.textContent = "Searching...";
+
+  try {
+    const snapshot = await db.collection("users").get();
+    results.replaceChildren();
+
+    let found = 0;
+
+    for (const doc of snapshot.docs) {
+      const user = doc.data();
+      const name = user.name || user.displayName || "";
+
+      if (
+        doc.id !== currentUser.uid &&
+        name.toLowerCase().includes(searchName)
+      ) {
+        const box = document.createElement("div");
+        box.className = "comment-line";
+
+        const nameText = document.createElement("span");
+        nameText.textContent = name + " ";
+
+        const addButton = document.createElement("button");
+        addButton.textContent = "👤 Add Friend";
+
+        addButton.addEventListener("click", async () => {
+          addButton.disabled = true;
+
+          try {
+            const requestId =
+              currentUser.uid + "_" + doc.id;
+
+            const requestRef = db
+              .collection("friendRequests")
+              .doc(requestId);
+
+            const existing = await requestRef.get();
+
+            if (existing.exists) {
+              addButton.textContent = "Request Already Sent";
+              return;
+            }
+
+            await requestRef.set({
+              fromUid: currentUser.uid,
+              toUid: doc.id,
+              status: "pending",
+              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+
+            addButton.textContent = "✅ Request Sent";
+          } catch (error) {
+            console.error(error);
+            addButton.textContent = "Try Again";
+            alert("Request failed. Please try again.");
+          } finally {
+            addButton.disabled = false;
+          }
+        });
+
+        box.appendChild(nameText);
+        box.appendChild(addButton);
+        results.appendChild(box);
+
+        found++;
+      }
+    }
+
+    if (found === 0) {
+      results.textContent = "No users found.";
+    }
+  } catch (error) {
+    console.error(error);
+    results.textContent = "Search failed. Please try again.";
+  }
+});
+// VIEW FRIEND REQUESTS
+$("viewFriendRequestsBtn").addEventListener("click", async () => {
+  const list = $("friendRequestsList");
+  list.replaceChildren();
+
+  if (!currentUser) {
+    list.textContent = "Please login first.";
+    return;
+  }
+
+  list.textContent = "Loading requests...";
+
+  try {
+    const snapshot = await db
+      .collection("friendRequests")
+      .where("toUid", "==", currentUser.uid)
+      .where("status", "==", "pending")
+      .get();
+
+    list.replaceChildren();
+
+    if (snapshot.empty) {
+      list.textContent = "No friend requests.";
+      return;
+    }
+
+    for (const doc of snapshot.docs) {
+      const request = doc.data();
+      const row = document.createElement("div");
+      row.className = "comment-line";
+
+      let senderName = "Unknown User";
+
+      try {
+        const sender = await db
+          .collection("users")
+          .doc(request.fromUid)
+          .get();
+
+        if (sender.exists) {
+          const data = sender.data();
+          senderName = data.name || data.displayName || senderName;
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
+      const name = document.createElement("span");
+      name.textContent = senderName + " ";
+
+      const accept = document.createElement("button");
+      accept.textContent = "✅ Accept";
+
+      accept.addEventListener("click", async () => {
+        accept.disabled = true;
+
+        try {
+          const friendRef = db.collection("friends");
+          const batch = db.batch();
+
+          batch.set(
+            friendRef.doc(currentUser.uid + "_" + request.fromUid),
+            {
+              users: [currentUser.uid, request.fromUid],
+              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }
+          );
+
+          batch.set(
+            friendRef.doc(request.fromUid + "_" + currentUser.uid),
+            {
+              users: [request.fromUid, currentUser.uid],
+              createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }
+          );
+
+          batch.update(doc.ref, {
+            status: "accepted"
+          });
+
+          await batch.commit();
+
+          row.textContent = "✅ You are now friends with " + senderName;
+        } catch (error) {
+          console.error(error);
+          alert("Could not accept request. Check Firestore Rules.");
+          accept.disabled = false;
+        }
+      });
+
+      row.appendChild(name);
+      row.appendChild(accept);
+      list.appendChild(row);
+    }
+  } catch (error) {
+    console.error(error);
+    list.textContent = "Could not load requests. Check Firestore Rules.";
+  }
+});
+
+
+// VIEW FRIENDS LIST
+$("viewFriendsBtn").addEventListener("click", async () => {
+  const list = $("friendsList");
+  list.replaceChildren();
+
+  if (!currentUser) {
+    list.textContent = "Please login first.";
+    return;
+  }
+
+  list.textContent = "Loading friends...";
+
+  try {
+    const snapshot = await db
+      .collection("friends")
+      .where("users", "array-contains", currentUser.uid)
+      .get();
+
+    list.replaceChildren();
+
+    if (snapshot.empty) {
+      list.textContent = "No friends yet.";
+      return;
+    }
+
+    const uniqueFriends = new Set();
+
+    for (const doc of snapshot.docs) {
+      const friendship = doc.data();
+
+      const friendUid = friendship.users.find(
+        uid => uid !== currentUser.uid
+      );
+
+      if (!friendUid || uniqueFriends.has(friendUid)) {
+        continue;
+      }
+
+      uniqueFriends.add(friendUid);
+
+      const friendDoc = await db
+        .collection("users")
+        .doc(friendUid)
+        .get();
+
+      const row = document.createElement("div");
+      row.className = "comment-line";
+
+const friendData = friendDoc.exists
+  ? friendDoc.data()
+  : {};
+
+const profileCard = document.createElement("div");
+profileCard.className = "comment-line";
+
+const photo = document.createElement("img");
+
+photo.src =
+  friendData.photoURL ||
+  friendData.photoUrl ||
+  friendData.photo ||
+  "";
+
+photo.style.display = "block";
+photo.style.width = "60px";
+photo.style.height = "60px";
+photo.style.borderRadius = "50%";
+photo.style.objectFit = "cover";
+
+photo.onerror = function () {
+  console.log("Friend photo failed to load:", this.src);
+};
+
+
+
+const name = document.createElement("h4");
+name.textContent =
+  friendData.name || friendData.displayName || "Friend";
+
+const email = document.createElement("p");
+email.textContent = friendData.email || "Email not available";
+const bio = document.createElement("p");
+bio.textContent = friendData.bio || "No bio added yet.";
+const profileButton = document.createElement("button");
+profileButton.textContent = "View Profile";
+
+profileButton.addEventListener("click", async () => {
+let profilePosts = list.querySelector("#friendProfilePosts");
+
+if (!profilePosts) {
+  profilePosts = document.createElement("div");
+  profilePosts.id = "friendProfilePosts";
+  profilePosts.className = "card";
+  list.appendChild(profilePosts);
+}
+
+profilePosts.replaceChildren();
+  profilePosts.textContent = "Loading friend's posts...";
+
+
+  try {
+    const snapshot = await db
+      .collection("posts")
+      .where("uid", "==", friendUid)
+      .get();
+
+    profilePosts.replaceChildren();
+
+    const heading = document.createElement("h3");
+    heading.textContent = name.textContent + "'s Posts";
+    profilePosts.appendChild(heading);
+
+    if (snapshot.empty) {
+      profilePosts.appendChild(
+        document.createTextNode("No posts yet.")
+      );
+      return;
+    }
+
+    const posts = snapshot.docs.sort((a, b) => {
+      const dateA = a.data().createdAt?.toDate?.() || new Date(0);
+      const dateB = b.data().createdAt?.toDate?.() || new Date(0);
+      return dateB - dateA;
+    });
+
+    posts.forEach(doc => {
+      const post = doc.data();
+
+      if (post.text) {
+        const text = document.createElement("p");
+        text.textContent = post.text;
+        profilePosts.appendChild(text);
+      }
+
+      if (post.postPhoto) {
+        const image = document.createElement("img");
+        image.src = post.postPhoto;
+        image.style.width = "100%";
+        image.style.maxWidth = "400px";
+        profilePosts.appendChild(image);
+      }
+
+      const divider = document.createElement("hr");
+      profilePosts.appendChild(divider);
+    });
+
+  } catch (error) {
+    profilePosts.textContent = "Could not load posts: " + error.message;
+  }
+});
+
+profileCard.appendChild(photo);
+profileCard.appendChild(name);
+profileCard.appendChild(email);
+profileCard.appendChild(bio);
+profileCard.appendChild(profileButton);
+
+list.appendChild(profileCard);
+
+
+
+      list.appendChild(row);
+    }
+
+    if (uniqueFriends.size === 0) {
+      list.textContent = "No friends yet.";
+    }
+
+  } catch (error) {
+    console.error(error);
+    list.textContent =
+      "Could not load friends. Check Firestore Rules.";
+  }
+});
+const coverInput = document.getElementById("coverInput");
+const coverPhoto = document.getElementById("coverPhoto");
+
+coverInput.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    coverPhoto.src = URL.createObjectURL(file);
+  }
+});
+</script>
+
+</body>
+</html>
