@@ -965,7 +965,9 @@ auth.onAuthStateChanged(async user => {
     const doc = await db.collection("users").doc(user.uid).get();
 
     currentProfile = doc.exists ? doc.data() : {};
-
+if (currentProfile.coverPhotoURL) {
+  $("coverPhoto").src = currentProfile.coverPhotoURL;
+}
     if (!currentProfile.name) {
       currentProfile.name = user.displayName || (user.email || "User").split("@")[0];
     }
