@@ -1744,16 +1744,29 @@ list.appendChild(profileCard);
       "Could not load friends. Check Firestore Rules.";
   }
 });
+
 const coverInput = document.getElementById("coverInput");
 const coverPhoto = document.getElementById("coverPhoto");
 
-coverInput.addEventListener("change", function () {
+coverInput.addEventListener("change", async function () {
   const file = this.files[0];
+  if (!file || !currentUser) return;
 
-  if (file) {
-    coverPhoto.src = URL.createObjectURL(file);
+  try {
+    const imageUrl = await uploadPhoto(file);
+
+    await db.collection("users").doc(currentUser.uid).set({
+      coverPhotoURL: imageUrl
+    }, { merge: true });
+
+    coverPhoto.src = imageUrl;
+    alert("Cover Photo saved successfully!");
+  } catch (error) {
+    console.error(error);
+    alert("Photo save failed. Please try again.");
   }
 });
+
 </script>
 <div class="bottom-nav">
   <a href="#">🏠<br>Home</a>
