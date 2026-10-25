@@ -765,11 +765,14 @@ auth.onAuthStateChanged(async function(user) {
     if (doc.exists) {
       const userData = doc.data();
 
-      coverProfilePhoto.src =
-        userData.photoURL ||
-        userData.photoUrl ||
-        userData.photo ||
-        "";
+      
+coverProfilePhoto.src =
+  userData.photoURL ||
+  userData.photoUrl ||
+  userData.photo ||
+  coverProfilePhoto.getAttribute("src") ||
+  "";
+
 
       coverProfileName.textContent = userData.name || "User";
     }
