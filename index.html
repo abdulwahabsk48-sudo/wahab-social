@@ -780,7 +780,8 @@ auth.onAuthStateChanged(async function(user) {
 coverProfilePhoto.src =
   userData.photoURL ||
   userData.photoUrl ||
-  userData.photo ||etAttribute("src") ||
+    userData.photo ||
+  coverProfilePhoto.getAttribute("src") ||
   "";
 
 
