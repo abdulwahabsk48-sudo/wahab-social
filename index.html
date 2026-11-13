@@ -113,7 +113,16 @@ button:disabled{opacity:.6}
 .hidden{display:none!important}
 .small{font-size:13px;color:#65676b}
 .profile-row{display:flex;align-items:center;gap:12px}
-.avatar{width:55px;height:55px;border-radius:50%;object-fit:cover;background:#ddd}
+.profile-row .avatar{
+  width:48px;
+  height:48px;
+  min-width:48px;
+  max-width:48px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#ddd;
+  flex-shrink:0;
+}
 .post-photo{width:100%;max-height:450px;object-fit:contain;margin-top:10px;border-radius:8px;background:#f0f2f5}
 .post-actions{display:flex;gap:8px}
 .post-actions button{padding:10px 5px;flex:1}
