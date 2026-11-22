@@ -765,7 +765,7 @@ let busy = false;
 const userNameCache = new Map();
 auth.onAuthStateChanged(async function(user) {
   
-  coverProfilePhoto.gconst coverProfilePhoto = $("coverProfilePhoto");
+  const coverProfilePhoto = $("coverProfilePhoto");
   const coverProfileName = $("coverProfileName");
 
   if (!user) return;
